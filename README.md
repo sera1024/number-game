@@ -32,21 +32,4 @@ npm test
 
 행·열 경계, 시간별 점수, 정답 범위를 검증합니다. 별도의 빌드 단계는 없습니다.
 
-## Git과 GitHub에 저장하기
-
-변경을 먼저 확인한 후 커밋하고 작업 브랜치를 GitHub에 올리세요.
-
-```sh
-git switch -c feat/number-game
-git status
-git diff
-git add index.html style.css app.js game.js package.json tests/game.test.js README.md
-git commit -m "feat: add number guessing web game"
-git push -u origin feat/number-game
-```
-
-GitHub 저장소에서 **Compare & pull request**를 눌러 `main` 대상으로 PR을 만들고, 변경을 검토한 뒤 병합합니다. 이미 같은 이름의 브랜치가 있다면 다른 이름을 사용하세요.
-
-웹사이트로 공개하려면 병합 후 GitHub 저장소의 **Settings → Pages → Deploy from a branch → main / (root) → Save**를 선택하세요. 배포가 완료되면 Pages 설정에 표시되는 주소로 게임을 열 수 있습니다. Pages 사용 가능 여부는 저장소 공개 범위와 GitHub 요금제에 따라 다릅니다.
-
 클라우드 환경의 Publish와 Git 커밋·푸시, GitHub Pages 배포는 서로 다른 작업입니다.

@@ -18,6 +18,8 @@
           <h1>숫자 마추기<span>.io</span></h1>
           <p class="lead">100개의 숫자 속,<br>당신의 감각이 찾을 단 하나.</p>
           <p class="description">1부터 100 사이에 숨은 숫자를 찾아보세요.<br>행과 열의 힌트를 따라, 더 빠르게 정답에 가까이.</p>
+          <fieldset class="mode-picker"><legend>플레이 모드</legend><label><input type="radio" name="mode" value="classic" checked> 클래식 <small>한 숫자를 빠르게</small></label><label><input type="radio" name="mode" value="attack"> 타임 어택 <small>60초 동안 최대한 많이</small></label></fieldset>
+          <p id="best-home" class="best-record"></p>
           <button id="start" class="primary">시작하기 <span aria-hidden="true">↗</span></button>
           <span class="start-note">설치 없이 바로 · 혼자서 가볍게</span>
         </div>
@@ -25,14 +27,15 @@
         <div class="how"><div><b>01</b><p><strong>숫자를 고르세요</strong><span>10 × 10 타일에서 마음 가는 숫자를 터치.</span></p></div><div><b>02</b><p><strong>힌트를 따라가세요</strong><span>정답과 같은 행, 같은 열인지 확인하세요.</span></p></div><div><b>03</b><p><strong>나만의 기록을 만드세요</strong><span>빠르게 찾을수록 더 높은 점수!</span></p></div></div>
       </section>
       <section id="game" class="game" hidden>
-        <div class="game-heading"><div><span class="eyebrow">FIND YOUR NUMBER</span><h1>어떤 숫자가 숨어 있을까요?</h1><p>하나를 골라보세요. 힌트가 길을 알려줄 거예요.</p></div><button id="restart" class="secondary">↻ 새 게임</button></div>
+        <div class="game-heading"><div><span class="eyebrow">FIND YOUR NUMBER</span><h1>어떤 숫자가 숨어 있을까요?</h1><p>하나를 골라보세요. 힌트가 길을 알려줄 거예요.</p></div><div class="game-actions"><button id="home" class="secondary">모드 선택</button><button id="restart" class="secondary">↻ 새 게임</button></div></div>
         <div class="game-layout">
           <div class="board-panel"><div class="board-heading"><span><i></i> NUMBER BOARD</span><span>1 — 100</span></div><div id="board" class="board" role="group" aria-label="1부터 100까지 숫자 선택"></div><p class="board-note">숫자를 터치하거나 Tab과 Enter로 선택하세요.</p></div>
           <aside class="sidebar">
-            <div class="stats"><div><span>플레이 시간</span><strong id="timer">00:00.0</strong></div><div><span>선택한 횟수</span><strong id="attempts">0<small>회</small></strong></div></div>
+            <div class="stats"><div><span id="time-label">플레이 시간</span><strong id="timer">00:00.0</strong></div><div><span>선택한 횟수</span><strong id="attempts">0<small>회</small></strong></div></div>
+            <div id="attack-progress" class="attack-progress" hidden><span>맞힌 숫자</span><strong id="solved">0개</strong><span id="best-game"></span></div>
             <div id="hint-card" class="hint-card"><span class="eyebrow">YOUR HINT</span><div id="hint-icon" class="hint-icon">?</div><h2 id="hint-title">첫 번째 숫자는?</h2><p id="hint" role="status" aria-live="polite">마음에 드는 숫자를 골라주세요.<br>정답이 기다리고 있어요.</p></div>
-            <div id="result" class="result" hidden><span class="eyebrow">WELL PLAYED!</span><h2>정답을 찾았어요 🎉</h2><strong id="score">0<small>점</small></strong><p id="result-detail"></p><button id="again" class="primary">다시 도전하기 ↗</button></div>
-            <div class="score-note"><span>조금 더 빠르게, 조금 더 높게.</span><p>점수 = 10,000 ÷ (1 + 소요 시간 ÷ 10)<br>소요 시간은 초 단위 · 반올림</p></div>
+            <div id="result" class="result" hidden><span class="eyebrow">WELL PLAYED!</span><h2 id="result-title">정답을 찾았어요 🎉</h2><strong id="score">0<small>점</small></strong><p id="result-detail"></p><p id="record-status" role="status"></p><button id="again" class="primary">다시 도전하기 ↗</button></div>
+            <div id="score-note" class="score-note"><span>조금 더 빠르게, 조금 더 높게.</span><p>점수 = 10,000 ÷ (1 + 소요 시간 ÷ 10)<br>소요 시간은 초 단위 · 반올림</p></div>
           </aside>
         </div>
       </section>
